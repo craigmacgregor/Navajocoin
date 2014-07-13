@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Navajocoin</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="@fullhdpixel">
+
+	<!-- Google Fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Lato:400,700,300' rel='stylesheet' type='text/css'>
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/theme.css" rel="stylesheet">
+	<link href="css/prettyPhoto.css" rel="stylesheet" type="text/css"/>
+	<link href="css/zocial.css" rel="stylesheet" type="text/css"/>
+	<link href="css/settings.css" rel="stylesheet" type="text/css"/>
+	<link href="css/animate.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="header">
+	<div class="container">
+		<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+		<i class="fa fa-bars"></i></button>
+		<div class="logo">
+			 <a href="index.html"><img src="img/logo.png" class="animated flipInX" alt=""  /></a>  
+		</div>
+		<nav id="main_menu">
+			<div class="nav-collapse collapse">
+				<ul class="nav nav-pills">
+					<!-- Home  About  Wallets  Projects  Community  Foundation  Contact -->
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about.html">About</a></li>
+					<li><a href="wallets.html">Wallets</a>
+					<li><a href="projects.html">Projects</a></li>
+					<li><a href="foundation.html">Foundation</a>
+					<li><a href="community.html">Community</a>
+					<li class="active"><a href="contact.html">Contact</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+</div>
+
+<div id="banner">
+	<div class="container intro_wrapper">
+		<div class="inner_content">
+			<h1>Need help?</h1>
+			<div class="animated fadeInDown">
+				<h1 class="title">Contact us!</h1>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container wrapper">
+	<div class="inner_content">
+		<div class="row">
+			<div class="span8 ">
+				<div class="contact_form"> 
+					<div id="fields">
+						<form id="ajax-contact-form">
+							<p class="form_info">
+								name <span class="required">*</span>
+							</p>
+							<input class="span5" type="text" name="name" value="" />
+							<p class="form_info">
+								email <span class="required">*</span>
+							</p>
+							<input class="span5" type="text" name="email" value=""  />
+							<p class="form_info">
+								subject</p>
+							<input class="span5" type="text" name="subject" value="" />
+							<br>
+							<p class="form_info">
+								message</p>
+							<textarea name="message" id="message" class="span8" ></textarea>
+			
+							<input type="submit" class="btn btn-primary btn-form marg-right5" value="submit" />
+							<input type="reset" class="btn btn-primary btn-form" value="clear" />
+						</form>
+					</div>
+				</div>                   
+			</div>                	
+		</div>
+	</div>
+</div>
+
+<div id="footer2">
+	<div class="container">
+		<div class="row">
+			<div class="span12">
+				<div class="copyright">
+					Navajocoin &copy; 2014 - All Rights Reserved. Created by <a href="http://twitter.com/fullhdpixel">Fullhdpixel</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<a href="#"><i class="go-top hidden-phone hidden-tablet fa fa-angle-double-up"></i></a>
+
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/scripts.js"></script>
+<script type="text/javascript">
+	//<![CDATA[
+		$(document).ready(function(){	
+			$("#ajax-contact-form").submit(function() {
+				var str = $(this).serialize();		
+				$.ajax({
+					type: "POST",
+					url: "contact_form/contact_process.php",
+					data: str,
+					success: function(msg) {
+						// Message Sent - Show the 'Thank You' message and hide the form
+						if(msg == 'OK') {
+							result = '<div class="notification_ok">Your message has been sent. Thank you!</div>';
+							$("#fields").hide();
+						} else {
+							result = msg;
+						}
+						$('#note').html(result);
+					}
+				});
+				return false;
+			});															
+		});	
+</script>
+<script type="text/javascript">
+var sc_project=9915651; 
+var sc_invisible=1; 
+var sc_security="9d7213da"; 
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+</body>
+</html>
